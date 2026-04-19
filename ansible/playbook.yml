@@ -10,7 +10,6 @@
     - nginx
     - composer
     - nodejs
-    - valkey
     - role: mariadb
       when: "db_type == 'mariadb'"
     - role: mysql
@@ -26,4 +25,6 @@
       when: "features.mongodb | default(false)"
     - role: webdriver
       when: "features.webdriver | default(false)"
+    - role: valkey
+      when: "features.valkey | default(false)"
     - laravel
