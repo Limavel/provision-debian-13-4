@@ -22,6 +22,22 @@
     state: present
     filename: mariadb
 
+- name: Pin MariaDB repository packages
+  copy:
+    dest: /etc/apt/preferences.d/mariadb
+    content: |
+      Package: mariadb-*
+      Pin: origin deb.mariadb.org
+      Pin-Priority: 1000
+
+      Package: libmariadb*
+      Pin: origin deb.mariadb.org
+      Pin-Priority: 1000
+
+      Package: galera-*
+      Pin: origin deb.mariadb.org
+      Pin-Priority: 1000
+
 - name: Update apt cache after adding MariaDB repo
   apt:
     update_cache: yes
