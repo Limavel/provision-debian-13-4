@@ -27,6 +27,8 @@
       when: "features.webdriver | default(false)"
     - role: valkey
       when: "features.valkey | default(false)"
+    - role: meilisearch
+      when: "features.meilisearch | default(false)"
     - aliases
     - motd
     - laravel
